@@ -25,14 +25,11 @@ fight against it。。真是惨痛回忆，想起来就头疼。。
 
 ![make you cry](./0.0.png)
 
-于此同时，当下python技术栈的同志们的javascript水平也逐渐
-开始6了起来，那么，直接撸前端是在正常不过的事情了。我因工作需求
-搓了一个小React Native APP之后对React的技术栈就越发的喜爱起来,
-先不管前端各个框架的布道师们是如何定义React, Angular, Vue的,
-就我这种amateur而言React的JSX就是一个来自未来的, concise的界面描述引擎,
-所有Jinja能干的事情都能干，而且能干的漂亮得多。平常，我每次写html+css都是很蛋疼的，有了JSX
-我就可以All in JavaScript, python的灵活性和react的灵活性相近，
-也让我有十足的亲近感。
+于此同时，当下python技术栈的同志们的javascript水平也逐渐开始6了起来，那么，直接撸前端是在正常不过的事情了。我因工作需求
+搓了一个小React Native APP之后对React的技术栈就越发的喜爱起来,先不管前端各个框架的布道师们是如何定义React, Angular, Vue的,
+就我这种<del>玩票型选手</del>而言React的JSX就是一个简洁灵活的界面描述语言,所有Jinja能干的事情都能干，而且能干的漂亮得多。
+平常，我每次写html+css都是很蛋疼的，有了JSX我就可以All in JavaScript.  
+最重要的，python的灵活性和react的灵活性相近, 也让我有十足的亲近感。
 
 ### 1. Bootstrap Validation 的方法
 
