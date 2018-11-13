@@ -238,6 +238,7 @@ class App extends Component {
 }
 ```
 上述demo的运行效果如下:
+
 ![gif-demo](./form-demo.gif)
 
 上述代码中:
