@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Bootstrap4 定制验证(Custom Validation)  的简单实现方法
 
 <small>
@@ -24,6 +22,7 @@ fight against it。。真是惨痛回忆，想起来就头疼。。
 下图是我看flask-bootstrap
 [源码](https://github.com/mbr/flask-bootstrap/blob/master/flask_bootstrap/templates/bootstrap/utils.html)
 时看到的@_@
+
 ![make you cry](./0.0.png)
 
 于此同时，当下python技术栈的同志们的javascript水平也逐渐
@@ -52,17 +51,18 @@ fight against it。。真是惨痛回忆，想起来就头疼。。
 </form>
 ```
 
-本例子中给input元素加上了required属性, 因此游览器会主动地验证这个地方有没有填值。  
-当form标签没加上`was-validated`,那么就不会去触发`:invalid`和`:valid`这两个css伪元素,  
-input外边框不会变成红色或者绿色, `.invalid-feedback`里的内容是隐藏的。
+本例子中给input元素加上了required属性, 因此游览器会主动地验证这个地方有没有填值。 
+ 
+当form标签**没加**`was-validated`,那么就不会去触发`:invalid`和`:valid`这两个css伪元素,  
+input外边框不会变成红色或者绿色, `.invalid-feedback`里的内容是隐藏的，如下:
 
 ![inital](./1.0.png)
 
-然后如果游览器加上`was-validated`，因为`<input required>`，没填游览器就会主动触发:invalid
+然后如果游览器加上`was-validated`，因为`<input required>`，没填游览器就会主动触发:invalid, ，如下:
 
 ![invalid](./1.1.png)
 
-填了就是:valid。
+填了就是:valid, 如下:
 
 ![valid](./1.2.png)
 
@@ -73,23 +73,34 @@ input外边框不会变成红色或者绿色, `.invalid-feedback`里的内容是
 <div id="main"></div>
 所以, 终于进入了本文的**主要内容**: `server-rendering`。
 
-**长话短说**, 不用在form上toggle`.was-validated`的class属性，直接在`<input>`标签上挂`.is-invalid`和`.is-valid`, 就能显示
+**长话短说**, 直接在`<input>`标签上挂`.is-invalid`和`.is-valid`, 不用在form上toggle`.was-validated`的class属性，就能显示
 该input的验证状态, 并且控制其相邻`.invalid-feedback`元素的显示开关。
 
-- `<input type="text" class="form-control" />` 不显示验证状态  
+初始代码:
+```html
+<form>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" value="whatever"/>
+    <div class="invalid-feedback">Server render invalid message</div>
+  </div>
+</form>
+```
+
+- `<input type="text" class="form-control" value="whatever" />` 不显示验证状态, 如下:  
 ![inital](./2.0.png)
-- `<input type="text" class="form-control is-invalid"/>` 显示invalid状态, 展示`.invalid-feedback`内容  
+- `<input type="text" class="form-control is-invalid" value="whatever" />` 显示invalid状态, 展示`.invalid-feedback`内容, 如下:  
 ![invalid](./2.1.png)
-- `<input type="text" class="form-control is-valid"/>` 显示valid状态, 不展示`.invalid-feedback`内容  
+- `<input type="text" class="form-control is-valid" value="whatever" />` 显示valid状态, 不展示`.invalid-feedback`内容, 如下:  
 ![valid](./2.2.png)
 
 OK, Get了这个知识点，那么恭喜诸位Flask同学已经知道如何server-rendering了。
 
-接下来介绍一下react里的一个简单实现的Demo:
+接下来介绍一下我用react实现的一个简单实现的Demo:
 [Github Repo](https://github.com/aweffr/bootstrap-form-validate-example)
-
-在我的实现中，采用的是`controlled components`, 不了解的这个概念的请看[这里](https://www.reactjs.org/docs/forms.html)。
-同时，由于bootstrap里的标准form做法是把input包在`.form-group`里, 这部分可以抽象成一个Dump组件:
+b
+本例采用的是`controlled components`, 不了解的这个概念的请看[这里](https://www.reactjs.org/docs/forms.html)。
+同时，由于bootstrap里的标准form做法是把input包在`.form-group`里, 这部分可以抽象成一个Dumb组件:
 ```jsx
 import classNames from 'classnames';
 
