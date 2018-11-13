@@ -69,6 +69,8 @@ input外边框不会变成红色或者绿色, `.invalid-feedback`里的内容是
 
 ### 2. 本文的推荐实现方法
 
+<span id='main'></span>
+
 所以, 终于进入了本文的**主要内容**: `server-rendering`。
 
 **长话短说**, 直接在`<input>`标签上挂`.is-invalid`和`.is-valid`, 不用在form上toggle`.was-validated`的class属性，就能显示
