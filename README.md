@@ -67,9 +67,10 @@ input外边框不会变成红色或者绿色, `.invalid-feedback`里的内容是
 [html5+js API的知识](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)了,
 不过，与其在html5里的框架里跳舞，我还是想概念越少越好;)， 有兴趣的同学请点击上述链接扩展学习。
 
+<span id='main'></span>
+
 ### 2. 本文的推荐实现方法
 
-<span id='main'></span>
 
 所以, 终于进入了本文的**主要内容**: `server-rendering`。
 
