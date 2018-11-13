@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap-reboot.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-function FormGroupText({label, name, type = 'text', validation = {}, onChange, placeholder, value}) {
+function FormGroupText({label, name, type = 'text', onChange, placeholder, value, validation = {}}) {
   let id = `form-id-${name}`; // 用于label.for和input.id
 
   return (
@@ -86,10 +86,10 @@ class App extends Component {
   render() {
     const {validation} = this.state;
     return (
-      <div className="container">
+      <div className="container my-3">
         <h2>Form Validation Demo</h2>
         {/* form 加上 noValidate 来阻止默认的浏览器的验证tooltips*/}
-        <form
+        <form className='my-3'
           method='post'
           onSubmit={this.onSubmit}
           noValidate
