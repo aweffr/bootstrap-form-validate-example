@@ -31,7 +31,7 @@ fight against it。。真是惨痛回忆，想起来就头疼。。
 平常，我每次写html+css都是很蛋疼的，有了JSX我就可以All in JavaScript.  
 最重要的，python的灵活性和react的灵活性相近, 也让我有十足的亲近感。
 
-### 1. Bootstrap Validation 的方法
+### 1. Bootstrap Validation 的原理
 
 首先, 表单的验证按官网分为"client side"和"server side",  
 官网对"client side"的理解为通过游览器的Validation API去验证字段的合法性,
@@ -67,7 +67,8 @@ input外边框不会变成红色或者绿色, `.invalid-feedback`里的内容是
 [html5+js API的知识](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)了,
 不过，与其在html5里的框架里跳舞，我还是想概念越少越好;)， 有兴趣的同学请点击上述链接扩展学习。
 
-<div id="main"></div>
+### 2. 本文的推荐实现方法
+
 所以, 终于进入了本文的**主要内容**: `server-rendering`。
 
 **长话短说**, 直接在`<input>`标签上挂`.is-invalid`和`.is-valid`, 不用在form上toggle`.was-validated`的class属性，就能显示
@@ -95,7 +96,8 @@ OK, Get了这个知识点，那么恭喜诸位Flask同学已经知道如何serve
 
 接下来介绍一下我用react实现的一个简单实现的Demo:
 [Github Repo](https://github.com/aweffr/bootstrap-form-validate-example)
-b
+
+
 本例采用的是`controlled components`, 不了解的这个概念的请看[这里](https://www.reactjs.org/docs/forms.html)。
 同时，由于bootstrap里的标准form做法是把input包在`.form-group`里, 这部分可以抽象成一个Dumb组件:
 ```jsx
@@ -251,7 +253,7 @@ class App extends Component {
 
 
 
-### More
+### 3. More
 当然, 这个例子里的validation实现方法还是很粗糙的。更进一步，严肃的项目上我们会去验证某个字段是不是必须是数字，是不是只能含有中文，是不是不能包含特殊字符，以及输入长度验证和密码强度验证。
 这就要求把validation rules配置化。这方面我用过的，体验非常好的是大哥级组件库`antd`。有兴趣的同学可以去[antd表单](https://ant.design/components/form-cn/)  
 和它的具体实现[rc-forms](http://react-component.github.io/form/examples/redux.html)做进一步学习,  
